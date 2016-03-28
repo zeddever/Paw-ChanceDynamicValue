@@ -2496,8 +2496,8 @@ BlueImpMD5.prototype.md5 = function (string, key, raw) {
 
                 // compute value
                 if (this.chanceArgs) {
-                    eval('var args =' + this.chanceArgs);
-                    value = chance[type].call(chance, args);
+                    eval('var args = [' + this.chanceArgs + ']');
+                    value = chance[type].apply(chance, args);
                 } else {
                     value = chance[type]();
                 }
